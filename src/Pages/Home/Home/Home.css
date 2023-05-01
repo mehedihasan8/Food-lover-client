@@ -1,0 +1,11 @@
+.bg-image {
+  padding: 2rem 7%;
+  background: url(/public/image/enjoye.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

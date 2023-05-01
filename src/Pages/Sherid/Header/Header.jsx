@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBeer } from "react-icons/fa";
+import { FaBars, FaTh } from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +50,7 @@ const Header = () => {
               title="Open Menu"
               onClick={() => setIsMenuOpen(true)}
             >
-              <FaBeer></FaBeer>
+              <FaBars></FaBars>
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-10">
@@ -71,7 +71,7 @@ const Header = () => {
                         title="Close Menu"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <FaBeer></FaBeer>
+                        <FaTh></FaTh>
                       </button>
                     </div>
                   </div>
