@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import image from "/public/image/chife.jpeg";
 import "./Home.css";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import Chefs from "../chefs/Chefs";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="my-container bg-image">
       <div className="md:flex justify-center items-center gap-3">
@@ -21,6 +25,7 @@ const Home = () => {
           </p>
         </div>
       </div>
+      <Chefs />
     </div>
   );
 };

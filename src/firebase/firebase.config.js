@@ -2,8 +2,8 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
+console.log(import.meta.env.VITE_apiKey);
 const firebaseConfig = {
   apiKey: "AIzaSyAMJk5JmJqa-rcxnTe0mqqTaGTK4p2jslg",
   authDomain: "food-lovers-1f510.firebaseapp.com",
