@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
+  const { loginUser, handelGoogleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handelLoginUser = (event) => {
     event.preventDefault();
 
@@ -10,7 +15,31 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    setSuccess("");
+    setError("");
+    if ((email, password)) {
+      loginUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          setSuccess("login Success ");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    }
   };
+
+  const loginWithGoogle = () => {
+    handelGoogleLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div>
       <div className="my-container">
@@ -45,10 +74,11 @@ const Login = () => {
                     required
                   />
                 </div>
-                <p className="mb-3 text-red-600 font-semibold"> errot</p>
+                <p className=" text-red-600 font-semibold"> {error}</p>
+                <p className="mb-3 text-emerald-600 font-semibold">{success}</p>
                 <button className="btn">Login</button>
                 <p className="p-2">
-                  <small className="text-info">
+                  <small className="text-black font-semibold">
                     Are you new?
                     <Link className="underline  " to="/register">
                       Plese Register
@@ -57,7 +87,10 @@ const Login = () => {
                 </p>
               </form>
               <div className="my-8">
-                <button className="btn flex justify-center items-center">
+                <button
+                  onClick={loginWithGoogle}
+                  className="btn flex justify-center items-center"
+                >
                   <FaGoogle style={{ fontSize: "25px" }} className="mx-4" />{" "}
                   Login with google
                 </button>

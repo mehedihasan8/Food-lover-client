@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTh } from "react-icons/fa";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="bg-gray-100">
@@ -34,11 +36,32 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
+              {user ? (
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Profile
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  log Out
+                </NavLink>
+              )}
+            </li>
+            <li>
               <NavLink
-                to="/"
+                to="/register"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Profile
+                Sign in
               </NavLink>
             </li>
           </ul>

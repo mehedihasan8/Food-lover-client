@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home";
 import Blog from "../Pages/Home/Blog/Blog";
 import Login from "../Pages/Home/Login/Login";
 import Register from "../Pages/Home/Register/Register";
+import Chefs from "../Pages/Home/chefs/Chefs";
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:5000/"),
       },
       {
         path: "/blog",

@@ -1,8 +1,12 @@
-import React from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handelSignIn = (event) => {
     event.preventDefault();
 
@@ -10,7 +14,31 @@ const Register = () => {
     const name = form.text.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, name, password);
+
+    setSuccess("");
+    setError("");
+
+    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+      setError("at least two capital letters");
+      return;
+    } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+      setError("at least two numeric digits");
+      return;
+    } else if (password.length < 6) {
+      setError("at least more then 6 numbers ");
+      return;
+    }
+
+    if ((name, email, password)) {
+      registerUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          setSuccess("Account create Success");
+        })
+        .catch((err) => {
+          setError(err.message);
+        });
+    }
   };
   return (
     <div>
@@ -80,10 +108,11 @@ const Register = () => {
                     required
                   />
                 </div>
-                <p className="mb-3 text-red-600 font-semibold"> errot</p>
+                <p className=" text-red-600 font-semibold"> {error}</p>
+                <p className="mb-3 text-emerald-600 font-semibold">{success}</p>
                 <button className="btn">Register</button>
-                <p className="p-2">
-                  <small className="text-info">
+                <p className="p-2 mt-3">
+                  <small className="text-black font-semibold">
                     You hava an account?
                     <Link className="underline  " to="/login">
                       Plese Login
@@ -91,18 +120,6 @@ const Register = () => {
                   </small>
                 </p>
               </form>
-              <div className="my-8">
-                <button className="btn flex justify-center items-center">
-                  <FaGoogle style={{ fontSize: "25px" }} className="mx-4" />{" "}
-                  Login with google
-                </button>
-
-                <br />
-                <button className="btn flex justify-center items-center">
-                  <FaGithub style={{ fontSize: "25px" }} className="mx-4" />{" "}
-                  Login with gitHub
-                </button>
-              </div>
             </div>
           </div>
         </div>
