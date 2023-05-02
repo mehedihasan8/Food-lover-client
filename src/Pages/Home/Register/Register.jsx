@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Register = () => {
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser, upDateProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  // const [user, setUser] = useState("");
 
   const handelSignIn = (event) => {
     event.preventDefault();
@@ -13,7 +14,9 @@ const Register = () => {
     const form = event.target;
     const name = form.text.value;
     const email = form.email.value;
+    const image = form.file.value;
     const password = form.password.value;
+    console.log(image);
 
     setSuccess("");
     setError("");
@@ -32,13 +35,24 @@ const Register = () => {
     if ((name, email, password)) {
       registerUser(email, password)
         .then((result) => {
-          console.log(result.user);
+          const registerUser = result.user;
+          upDateProfile(registerUser, name, image);
+
           setSuccess("Account create Success");
+          console.log(result.user);
         })
         .catch((err) => {
           setError(err.message);
         });
     }
+    // upDateProfile(user, name, image)
+    //   .then((result) => {
+    //     const updateUser = result.user;
+    //     console.log(updateUser);
+    //   })
+    //   .catch((errer) => {
+    //     setError(errer.message);
+    //   });
   };
   return (
     <div>
@@ -73,6 +87,7 @@ const Register = () => {
                     />
                     <input
                       type="file"
+                      name="file"
                       class="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
@@ -110,7 +125,7 @@ const Register = () => {
                 </div>
                 <p className=" text-red-600 font-semibold"> {error}</p>
                 <p className="mb-3 text-emerald-600 font-semibold">{success}</p>
-                <button className="btn">Register</button>
+                <button className="btn2 w-full">Register</button>
                 <p className="p-2 mt-3">
                   <small className="text-black font-semibold">
                     You hava an account?

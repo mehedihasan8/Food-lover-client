@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
 import image from "/public/image/chife.jpeg";
 import "./Home.css";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import Chefs from "../chefs/Chefs";
 import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
   const datas = useLoaderData();
-  console.log(datas);
+
   return (
     <>
       <div className="my-container bg-image">

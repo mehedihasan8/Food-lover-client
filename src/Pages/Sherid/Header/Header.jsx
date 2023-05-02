@@ -4,8 +4,15 @@ import { FaBars, FaTh } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(console.error(error.message));
+  };
   return (
     <div className="bg-gray-100">
       <div className=" px-4  py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -36,34 +43,36 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              {user ? (
+              {user && (
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }
                 >
-                  Profile
-                </NavLink>
-              ) : (
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }
-                >
-                  log Out
+                  {user?.displayName}
                 </NavLink>
               )}
             </li>
-            <li>
+            {user ? (
+              <li>
+                <NavLink
+                  onClick={handelLogOut}
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Log Out
+                </NavLink>
+              </li>
+            ) : (
               <NavLink
                 to="/register"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Sign in
               </NavLink>
-            </li>
+            )}
           </ul>
           {/* Mobile Navbar Section */}
           <div className="lg:hidden">
