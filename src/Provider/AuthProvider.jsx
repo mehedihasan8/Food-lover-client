@@ -71,6 +71,7 @@ const AuthProvider = ({ children }) => {
     handelGoogleLogin,
     handelGitHubLogin,
     upDateProfile,
+    loading,
   };
 
   return (

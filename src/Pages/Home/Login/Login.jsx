@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
@@ -8,6 +8,10 @@ const Login = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handelLoginUser = (event) => {
     event.preventDefault();
@@ -22,6 +26,7 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
+          navigate(from, { replace: true });
           setSuccess("login Success ");
         })
         .catch((error) => {
@@ -34,8 +39,8 @@ const Login = () => {
     handelGoogleLogin()
       .then((result) => {
         console.log(result.user);
+        navigate(from, { replace: true });
         setSuccess("login Success ");
-        <Navigate to="/"></Navigate>;
       })
       .catch((error) => {
         setError(error.message);
@@ -46,6 +51,7 @@ const Login = () => {
     handelGitHubLogin()
       .then((result) => {
         console.log(result.user);
+        navigate(from, { replace: true });
         setSuccess("login Success ");
       })
       .catch((error) => {

@@ -78,24 +78,14 @@ const Register = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="">Choose profile photo</label>
-                  <div class="shrink-0 flex my-3">
-                    <img
-                      class="h-16 w-16 object-cover rounded-full"
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
-                      alt="Current profile photo"
-                    />
-                    <input
-                      type="file"
-                      name="file"
-                      class="block w-full text-sm text-slate-500
-                                file:mr-4 file:py-2 file:px-4
-                                file:rounded-full file:border-0
-                                file:text-sm file:font-semibold
-                                file:bg-violet-50 file:text-violet-700
-                                hover:file:bg-violet-100   md:w-96 p-3 rounded-md mt-2 mb-6    "
-                    />
-                  </div>
+                  <label htmlFor="">Choose profile photo</label> <br />
+                  <input
+                    className="w-auto md:w-96 p-3 rounded-md mt-2 mb-6"
+                    type="text"
+                    name="file"
+                    placeholder="Enter your photo"
+                    required
+                  />
                 </div>
                 <div>
                   <label className="mt-32" htmlFor="">
@@ -126,13 +116,11 @@ const Register = () => {
                 <p className=" text-red-600 font-semibold"> {error}</p>
                 <p className="mb-3 text-emerald-600 font-semibold">{success}</p>
                 <button className="btn2 w-full">Register</button>
-                <p className="p-2 mt-3">
-                  <small className="text-black font-semibold">
-                    You hava an account?
-                    <Link className="underline  " to="/login">
-                      Plese Login
-                    </Link>
-                  </small>
+                <p className="p-2 mt-3 text-black font-semibold">
+                  You hava an account ?
+                  <Link className=" mr-1 btn btn-link" to="/login">
+                    Plese Login
+                  </Link>
                 </p>
               </form>
             </div>
