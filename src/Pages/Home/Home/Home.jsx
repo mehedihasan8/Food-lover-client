@@ -2,6 +2,7 @@ import image from "/public/image/chife.jpeg";
 import "./Home.css";
 import Chefs from "../chefs/Chefs";
 import { useLoaderData } from "react-router-dom";
+import OutClint from "../OurClient/OutClint";
 
 const Home = () => {
   const datas = useLoaderData();
@@ -27,6 +28,7 @@ const Home = () => {
         </div>
       </div>
       <Chefs datas={datas} />
+      <OutClint />
     </>
   );
 };

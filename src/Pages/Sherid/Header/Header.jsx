@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaTh } from "react-icons/fa";
+import { FaBars, FaTh, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
           </Link>
 
           {/* Nav Items Section */}
-          <ul className="items-center hidden space-x-8 lg:flex">
+          <ul className="items-center hidden space-x-4 lg:flex">
             <li>
               <NavLink
                 to="/"
@@ -42,37 +42,35 @@ const Header = () => {
                 Blog
               </NavLink>
             </li>
+            <li>{user ? <p>{user.displayName}</p> : <p>Profile</p>}</li>
             <li>
-              {user && (
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }
-                >
-                  {user?.displayName}
-                </NavLink>
+              {user ? (
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src={user.photoURL}
+                  alt="photo"
+                />
+              ) : (
+                <FaUserCircle className="w-8 h-8" />
               )}
             </li>
-            {user ? (
-              <li>
-                <NavLink
+
+            <li>
+              {user ? (
+                <button
+                  className="btn btn-sm btn-outline btn-primary"
                   onClick={handelLogOut}
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }
                 >
-                  Log Out
-                </NavLink>
-              </li>
-            ) : (
-              <NavLink
-                to="/register"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                Sign in
-              </NavLink>
-            )}
+                  log Out
+                </button>
+              ) : (
+                <Link to="/register">
+                  <button className="btn btn-sm btn-outline btn-primary">
+                    Sign in
+                  </button>
+                </Link>
+              )}
+            </li>
           </ul>
           {/* Mobile Navbar Section */}
           <div className="lg:hidden">
