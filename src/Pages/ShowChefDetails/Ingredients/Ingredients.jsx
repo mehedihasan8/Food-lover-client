@@ -2,8 +2,8 @@ import React from "react";
 
 const Ingredients = ({ ingredient }) => {
   return (
-    <div>
-      <h1>{ingredient}</h1>
+    <div className="ml-3 mt-1">
+      <li>{ingredient}</li>
     </div>
   );
 };

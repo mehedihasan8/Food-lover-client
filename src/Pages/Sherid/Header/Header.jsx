@@ -45,11 +45,16 @@ const Header = () => {
             <li>{user ? <p>{user.displayName}</p> : <p>Profile</p>}</li>
             <li>
               {user ? (
-                <img
-                  className="h-10 w-10 rounded-full"
-                  src={user.photoURL}
-                  alt="photo"
-                />
+                <div
+                  className="tooltip tooltip-bottom"
+                  data-tip={user.displayName}
+                >
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={user.photoURL}
+                    alt="photo"
+                  />
+                </div>
               ) : (
                 <FaUserCircle className="w-8 h-8" />
               )}

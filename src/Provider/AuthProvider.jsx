@@ -17,6 +17,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [reload, setReload] = useState(null);
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
 
@@ -45,7 +46,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, gitHubProvider);
   };
 
-  const upDateProfile = (user, name, photo) => {
+  const upDateUser = (user, name, photo) => {
     setLoading(true);
     return updateProfile(user, {
       displayName: name,
@@ -61,7 +62,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unSubcribe();
     };
-  }, []);
+  }, [reload]);
 
   const authInfo = {
     user,
@@ -70,8 +71,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     handelGoogleLogin,
     handelGitHubLogin,
-    upDateProfile,
+    upDateUser,
     loading,
+    setReload,
   };
 
   return (

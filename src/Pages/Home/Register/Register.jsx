@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Register = () => {
-  const { registerUser, upDateProfile } = useContext(AuthContext);
+  const { registerUser, upDateUser, setReload } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   // const [user, setUser] = useState("");
@@ -36,7 +36,13 @@ const Register = () => {
       registerUser(email, password)
         .then((result) => {
           const registerUser = result.user;
-          upDateProfile(registerUser, name, image);
+          upDateUser(registerUser, name, image)
+            .then((result) => {
+              setReload(new Date().getTime());
+            })
+            .catch((error) => {
+              setError(error.message);
+            });
 
           setSuccess("Account create Success");
           console.log(result.user);

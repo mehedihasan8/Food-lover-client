@@ -1,9 +1,14 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Recipes from "../Recipes/Recipes";
+import Loading from "../../Sherid/Loading/Loading";
 
 const ShowChefDetails = () => {
   const detailsChef = useLoaderData();
+  const navigaction = useNavigation();
+  if (navigaction.state === "loading") {
+    return <Loading></Loading>;
+  }
   const { id, name, experience, photo, numRecipes, likes, bio, recipes } =
     detailsChef;
   console.log(detailsChef);

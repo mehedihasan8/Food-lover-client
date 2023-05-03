@@ -1,11 +1,17 @@
 import image from "/public/image/chife.jpeg";
 import "./Home.css";
 import Chefs from "../chefs/Chefs";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import OutClint from "../OurClient/OutClint";
+import Loading from "../../Sherid/Loading/Loading";
 
 const Home = () => {
   const datas = useLoaderData();
+  const navigaction = useNavigation();
+  console.log(navigaction.state);
+  if (navigator.state === "loading") {
+    return <Loading></Loading>;
+  }
 
   return (
     <>
@@ -24,6 +30,11 @@ const Home = () => {
               technique, with an ability to transform even the most basic
               ingredients into a masterpiece
             </p>
+            <Link to="/login">
+              <button className="btn btn-outline btn-primary my-4">
+                Contact us
+              </button>
+            </Link>
           </div>
         </div>
       </div>
