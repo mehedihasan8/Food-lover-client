@@ -42,7 +42,6 @@ const Header = () => {
                 Blog
               </NavLink>
             </li>
-            <li>{user ? <p>{user.displayName}</p> : <p>Profile</p>}</li>
             <li>
               {user ? (
                 <div
@@ -56,7 +55,9 @@ const Header = () => {
                   />
                 </div>
               ) : (
-                <FaUserCircle className="w-8 h-8" />
+                <Link to="/login">
+                  <button className="btn-link">Login</button>
+                </Link>
               )}
             </li>
 
@@ -71,7 +72,7 @@ const Header = () => {
               ) : (
                 <Link to="/register">
                   <button className="btn btn-sm btn-outline btn-primary">
-                    Sign in
+                    Sign up
                   </button>
                 </Link>
               )}
@@ -124,12 +125,39 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          to="/"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
-                        >
-                          Profile
-                        </Link>
+                        {user ? (
+                          <div
+                            className="tooltip tooltip-bottom"
+                            data-tip={user.displayName}
+                          >
+                            <img
+                              className="h-10 w-10 rounded-full"
+                              src={user.photoURL}
+                              alt="photo"
+                            />
+                          </div>
+                        ) : (
+                          <Link to="/login">
+                            <button className="btn-link">Login</button>
+                          </Link>
+                        )}
+                      </li>
+
+                      <li>
+                        {user ? (
+                          <button
+                            className="btn btn-sm btn-outline btn-primary"
+                            onClick={handelLogOut}
+                          >
+                            log Out
+                          </button>
+                        ) : (
+                          <Link to="/register">
+                            <button className="btn btn-sm btn-outline btn-primary">
+                              Sign up
+                            </button>
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>

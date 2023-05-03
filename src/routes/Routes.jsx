@@ -9,16 +9,18 @@ import Chefs from "../Pages/Home/chefs/Chefs";
 import ShowChef from "../LayOut/ShowChef";
 import ShowChefDetails from "../Pages/ShowChefDetails/ShowChefDetails/ShowChefDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../Pages/Sherid/ErrorPage/ErrorPage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () => fetch("https://loves-food-server.vercel.app/"),
       },
       {
         path: "/blog",
@@ -37,6 +39,7 @@ const routes = createBrowserRouter([
   {
     path: "/showchef",
     element: <ShowChef></ShowChef>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: ":id",
@@ -45,7 +48,8 @@ const routes = createBrowserRouter([
             <ShowChefDetails></ShowChefDetails>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://loves-food-server.vercel.app/${params.id}`),
       },
     ],
   },

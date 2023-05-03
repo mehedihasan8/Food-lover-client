@@ -21,6 +21,11 @@ const Register = () => {
     setSuccess("");
     setError("");
 
+    if (!email || !password || !name || !image) {
+      setError("Must be fillup all Criteria ");
+      return;
+    }
+
     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
       setError("at least two capital letters");
       return;
@@ -80,7 +85,6 @@ const Register = () => {
                     type="text"
                     name="text"
                     placeholder="Enter your name"
-                    required
                   />
                 </div>
                 <div>
@@ -90,7 +94,6 @@ const Register = () => {
                     type="text"
                     name="file"
                     placeholder="Enter your photo"
-                    required
                   />
                 </div>
                 <div>
@@ -103,7 +106,6 @@ const Register = () => {
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    required
                   />
                 </div>
                 <div>
@@ -116,7 +118,6 @@ const Register = () => {
                     type="password"
                     name="password"
                     placeholder="Enter your password"
-                    required
                   />
                 </div>
                 <p className=" text-red-600 font-semibold"> {error}</p>

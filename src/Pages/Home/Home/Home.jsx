@@ -31,7 +31,7 @@ const Home = () => {
               ingredients into a masterpiece
             </p>
             <Link to="/login">
-              <button className="btn btn-outline btn-primary my-4">
+              <button className="btn btn-outline btn-success my-4">
                 Contact us
               </button>
             </Link>

@@ -15,11 +15,11 @@ const Recipes = ({ rec }) => {
 
   const { ingredients, name, method, rating, favorite } = rec;
   return (
-    <div className="card w-96 bg-blue-100 text-black">
+    <div className="card bg-blue-100 text-black">
       <div className="card-body  ">
         <h2 className="card-title text-2xl font-bold">Recipes : {name}</h2>
         <p className="my-2">
-          <small className="text-xl font-semibold">Ingredinent</small>
+          <small className="text-xl font-semibold">Ingredinent : </small>
           {ingredients.map((ingredient) => (
             <Ingredients ingredient={ingredient}></Ingredients>
           ))}
