@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Ingredients from "../Ingredients/Ingredients";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Recipes = ({ rec }) => {
+  const [isFavorit, setIsFavorit] = useState(false);
+
+  const handelBtnDisable = () => {
+    setIsFavorit(true);
+    toast.success(" Recipe is your Favorite !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const { ingredients, name, method, rating, favorite } = rec;
   return (
     <div className="card w-96 bg-blue-100 text-black">
@@ -18,7 +29,14 @@ const Recipes = ({ rec }) => {
         </p>
         <p>Rating {rating}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary btn-outline">Favorite</button>
+          <button
+            onClick={handelBtnDisable}
+            disabled={isFavorit}
+            className="btn btn-primary btn-outline"
+          >
+            Favorite
+          </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
