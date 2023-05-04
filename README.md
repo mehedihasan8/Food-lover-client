@@ -26,7 +26,7 @@
 
 ## Live Link
 
-- Hosted in Firebase -> [Food Lovers](https://food-lovers-1f510.web.app/)
+- Hosted in Firebase -> [Food Lovers](https://food-lovers-1f510.eb.app/)
 
 ## Installation
 

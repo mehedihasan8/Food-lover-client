@@ -27,7 +27,7 @@ const Recipes = ({ rec }) => {
         <p>
           <span className="font-semibold">Cooking Method : </span> {method}
         </p>
-        <p>Rating {rating}</p>
+        <p className="badge badge-primary ">Rating {rating}</p>
         <div className="card-actions justify-end">
           <button
             onClick={handelBtnDisable}

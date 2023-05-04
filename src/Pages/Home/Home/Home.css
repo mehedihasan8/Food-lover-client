@@ -6,6 +6,6 @@
   background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }

@@ -4,8 +4,8 @@ import Chef from "./Chef";
 const Chefs = ({ datas }) => {
   return (
     <div className="my-container">
-      <h1 className="text-center font-bold text-5xl mb-16 mt-10">
-        Out Best Chef{" "}
+      <h1 className="text-center font-bold text-5xl text-purple-600 mb-16 mt-10">
+        Our Best Chef
       </h1>
       <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {datas.map((data) => (

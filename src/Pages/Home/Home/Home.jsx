@@ -2,7 +2,7 @@ import image from "/public/image/chife.jpeg";
 import "./Home.css";
 import Chefs from "../chefs/Chefs";
 import { Link, useLoaderData, useNavigation } from "react-router-dom";
-import OutClint from "../OurClient/OutClint";
+import OurChefRecipies from "../OurChefRecipies/OurChefRecipies";
 import Loading from "../../Sherid/Loading/Loading";
 
 const Home = () => {
@@ -15,31 +15,23 @@ const Home = () => {
 
   return (
     <>
-      <div className="my-container bg-image">
-        <div className="md:flex justify-center items-center gap-3">
-          <img className="h-96 rounded-2xl flex-grow" src={image} alt="" />
-          <div className="grow-0">
-            <h1 className="text-5xl font-bold leading-normal text-white">
-              Contact Our
-              <br /> Best Chife
+      <div className="my-container bg-image ">
+        <div className=" lg:flex items-center gap-8">
+          <img
+            className="h-96 w-96 rounded-2xl flex-grow"
+            src={image}
+            alt="img"
+          />
+          <div className="w-96 my-6 px-2">
+            <h1 className="text-white font-bold text-6xl mb-4 ">
+              It's not just a cooking ,
             </h1>
-            <p className="text-white space-y-3.5">
-              A chef is a culinary artist who combines creativity, passion, and
-              skill to create memorable dining experiences for their customers.
-              A great chef is not only a master of flavor, but also a master of
-              technique, with an ability to transform even the most basic
-              ingredients into a masterpiece
-            </p>
-            <Link to="/login">
-              <button className="btn btn-outline btn-success my-4">
-                Contact us
-              </button>
-            </Link>
+            <h1 className="text-white font-bold text-5xl">It's a Expeirence</h1>
           </div>
         </div>
       </div>
       <Chefs datas={datas} />
-      <OutClint />
+      <OurChefRecipies />
     </>
   );
 };
