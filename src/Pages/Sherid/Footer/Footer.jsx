@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className=" p-10 bg-slate-800 text-white">
+    <footer className=" mt-20 p-10 bg-slate-800 text-white">
       <div className="grid grid-cols-2 md:grid-cols-4">
         <div className="flex flex-col lg:pl-10 ">
           <h1 className="font-semibold text-xl">Meno links</h1>

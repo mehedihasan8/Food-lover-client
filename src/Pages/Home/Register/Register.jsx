@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Register = () => {
   const { registerUser, upDateUser, setReload } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
   // const [user, setUser] = useState("");
 
   const handelSignIn = (event) => {
@@ -50,6 +51,8 @@ const Register = () => {
             });
 
           setSuccess("Account create Success");
+
+          navigate("/login");
           console.log(result.user);
         })
         .catch((err) => {

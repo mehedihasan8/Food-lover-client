@@ -1,4 +1,7 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import images1 from "../../../../public/image/gallery1.png";
 import images2 from "../../../../public/image/gallery2.png";
 import images3 from "../../../../public/image/gallery3.png";
@@ -12,64 +15,82 @@ const OurChefRecipies = () => {
         Our Best Chef Recipes
       </h1>
       <div className=" my-container  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Beef Wellington
           </h1>
-          <img
-            className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
+            className="rounded-xl mx-auto hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images1}
-            alt=""
           />
         </div>
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Scrambled Eggs
           </h1>
-          <img
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images2}
-            alt=""
           />
         </div>
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Lobster Risotto
           </h1>
-          <img
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images3}
-            alt=""
           />
         </div>
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Macaroni and Cheese
           </h1>
-          <img
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images4}
-            alt=""
           />
         </div>
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Spaghetti Carbonara
           </h1>
-          <img
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images5}
-            alt=""
           />
         </div>
-        <div>
+        <div className="mx-auto">
           <h1 className="text-purple-500 text-2xl font-bold mb-5 text-center">
             Hot and cold dring
           </h1>
-          <img
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
+            height={380}
+            width={380}
             src={images6}
-            alt=""
           />
         </div>
       </div>

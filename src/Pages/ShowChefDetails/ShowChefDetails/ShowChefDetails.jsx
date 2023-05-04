@@ -1,5 +1,7 @@
 import React from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Recipes from "../Recipes/Recipes";
 import Loading from "../../Sherid/Loading/Loading";
 
@@ -16,7 +18,13 @@ const ShowChefDetails = () => {
     <div className="">
       <div className="card  lg:w-3/5 lg:mx-auto mx-3 mt-12 bg-base-100 border border-purple-400 shadow-xl ">
         <figure className="px-10 pt-10 bg-purple-300 m-5   ">
-          <img className="h-72 w-auto" src={photo} alt="img" />
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
+            height={380}
+            width={380}
+            src={photo}
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title font-bold text-center text-3xl">
