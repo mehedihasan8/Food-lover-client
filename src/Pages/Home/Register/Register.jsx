@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const { registerUser, upDateUser, setReload } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate();
-  // const [user, setUser] = useState("");
 
   const handelSignIn = (event) => {
     event.preventDefault();
@@ -17,24 +16,35 @@ const Register = () => {
     const email = form.email.value;
     const image = form.file.value;
     const password = form.password.value;
-    console.log(image);
 
     setSuccess("");
     setError("");
 
     if (!email || !password || !name || !image) {
       setError("Must be fillup all Criteria ");
+      toast.error("Must be fillup all Criteria ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     }
 
     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-      setError("at least two capital letters");
+      setError("At least two capital letters");
+      toast.error("At least two capital letters", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
-      setError("at least two numeric digits");
+      setError("At least two numeric digits");
+      toast.error("At least two numeric digits", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     } else if (password.length < 6) {
-      setError("at least more then 6 numbers ");
+      setError("At least more then 6 numbers ");
+      toast.error("At least more then 6 numbers ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     }
 
@@ -48,25 +58,25 @@ const Register = () => {
             })
             .catch((error) => {
               setError(error.message);
+              toast.error(`${err.message}`, {
+                position: toast.POSITION.TOP_CENTER,
+              });
             });
 
           setSuccess("Account create Success");
+          toast.success(" Account Create Success", {
+            position: toast.POSITION.TOP_CENTER,
+          });
 
-          navigate("/login");
           console.log(result.user);
         })
         .catch((err) => {
           setError(err.message);
+          toast.error(`${err.message}`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
         });
     }
-    // upDateProfile(user, name, image)
-    //   .then((result) => {
-    //     const updateUser = result.user;
-    //     console.log(updateUser);
-    //   })
-    //   .catch((errer) => {
-    //     setError(errer.message);
-    //   });
   };
   return (
     <div>
@@ -91,12 +101,12 @@ const Register = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="">Choose profile photo</label> <br />
+                  <label htmlFor="">Choose profile photo URL</label> <br />
                   <input
                     className="w-auto md:w-96 p-3 rounded-md mt-2 mb-6"
                     type="text"
                     name="file"
-                    placeholder="Enter your photo"
+                    placeholder="Enter your photo URL"
                   />
                 </div>
                 <div>
@@ -133,6 +143,7 @@ const Register = () => {
                   </Link>
                 </p>
               </form>
+              <ToastContainer />
             </div>
           </div>
         </div>

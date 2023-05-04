@@ -12,7 +12,7 @@ const OurChefRecipies = () => {
   return (
     <div className="">
       <h1 className=" text-center text-5xl mb-10 mt-10  text-purple-600 font-bold">
-        Our Best Chef Recipes
+        Our Best Chef's Recipes
       </h1>
       <div className=" my-container  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         <div className="mx-auto">

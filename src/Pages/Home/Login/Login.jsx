@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser, handelGoogleLogin, handelGitHubLogin } =
@@ -22,15 +23,30 @@ const Login = () => {
 
     setSuccess("");
     setError("");
+
+    if (!email || !password) {
+      setError("Provide Email or Password ");
+      toast.error("Provide Email or Password ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
+
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
           navigate(from, { replace: true });
-          setSuccess("login Success ");
+          setSuccess(" Login Successfull !");
+          toast.success(" Login Successfull !", {
+            position: toast.POSITION.TOP_CENTER,
+          });
         })
         .catch((error) => {
           setError(error.message);
+          toast.error(`${error.message}`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
         });
     }
   };
@@ -40,22 +56,33 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         navigate(from, { replace: true });
-        setSuccess("login Success ");
+        setSuccess(" Login Successfull ! ");
+        toast.success(" Login Successfull !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       })
       .catch((error) => {
         setError(error.message);
+        toast.error(`${error.message}`, {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
   const loginWithGitHub = () => {
     handelGitHubLogin()
       .then((result) => {
-        console.log(result.user);
         navigate(from, { replace: true });
-        setSuccess("login Success ");
+        setSuccess("Login Successfull ");
+        toast.success(" Login Successfull !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       })
       .catch((error) => {
         setError(error.message);
+        toast.error(`${error.message}`, {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
@@ -79,7 +106,6 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="enter your email"
-                    required
                   />
                 </div>
                 <div>
@@ -90,7 +116,6 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="enter your password"
-                    required
                   />
                 </div>
                 <p className=" text-red-600 font-semibold"> {error}</p>
@@ -99,7 +124,7 @@ const Login = () => {
                 <p className="p-2">
                   <small className="text-black font-semibold">
                     Are you new?
-                    <Link className="underline  " to="/register">
+                    <Link className=" mr-1 btn btn-link" to="/register">
                       Plese Register
                     </Link>
                   </small>
@@ -122,6 +147,7 @@ const Login = () => {
                   <FaGithub style={{ fontSize: "25px" }} className="mx-4" />{" "}
                   Login with gitHub
                 </button>
+                <ToastContainer />
               </div>
             </div>
           </div>

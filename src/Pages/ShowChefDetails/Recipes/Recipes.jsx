@@ -3,7 +3,8 @@ import Ingredients from "../Ingredients/Ingredients";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import Rating from "react-rating";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 const Recipes = ({ rec }) => {
   const [isFavorit, setIsFavorit] = useState(false);
@@ -18,37 +19,50 @@ const Recipes = ({ rec }) => {
   const { ingredients, name, method, rating, img } = rec;
   console.log(img);
   return (
-    <div className="card bg-blue-100 text-black">
-      <div className="p-6">
-        <div className="h-60 w-full mx-auto">
-          <LazyLoadImage
-            effect="blur"
-            alt="img"
-            className=" rounded-3xl"
-            height={150}
-            width={220}
-            src={img}
-          />
+    <div className="card-body border relative  border-purple-400 ">
+      <div className="">
+        <LazyLoadImage
+          alt="img"
+          className=" h-48 w-full rounded-lg shadow-sm"
+          height={""}
+          width={""}
+          src={img}
+        />
+        <div className="p-3 mb-2">
+          <h2 className="card-title text-2xl mt-2 font-bold"> {name}</h2>
+          <p className="my-2">
+            <small className="text-xl font-semibold">Ingredinent : </small>
+            {ingredients.map((ingredient) => (
+              <Ingredients ingredient={ingredient}></Ingredients>
+            ))}
+          </p>
+          <p className="mb-2">
+            <span className="font-semibold">Cooking Method : </span> {method}
+          </p>
         </div>
-        <h2 className="card-title text-2xl font-bold">Recipes : {name}</h2>
-        <p className="my-2">
-          <small className="text-xl font-semibold">Ingredinent : </small>
-          {ingredients.map((ingredient) => (
-            <Ingredients ingredient={ingredient}></Ingredients>
-          ))}
-        </p>
-        <p>
-          <span className="font-semibold">Cooking Method : </span> {method}
-        </p>
-        <p className="badge badge-primary ">Rating {rating}</p>
-        <div className="card-actions justify-end">
-          <button
-            onClick={handelBtnDisable}
-            disabled={isFavorit}
-            className="btn btn-primary btn-outline"
-          >
-            Favorite
-          </button>
+
+        <div className=" bottom-4 absolute ">
+          <div className="flex items-center justify-between gap-10">
+            <p className="flex items-center">
+              <Rating
+                placeholderRating={rating}
+                emptySymbol={<FaRegStar></FaRegStar>}
+                placeholderSymbol={
+                  <FaStar className="text-yellow-400"></FaStar>
+                }
+                fullSymbol={<FaStar></FaStar>}
+                readonly
+              />
+              <span className="mb-1 ml-2 font-semibold">Rating : {rating}</span>
+            </p>
+            <button
+              onClick={handelBtnDisable}
+              disabled={isFavorit}
+              className="btn btn-primary btn-outline"
+            >
+              Favorite
+            </button>
+          </div>
           <ToastContainer />
         </div>
       </div>

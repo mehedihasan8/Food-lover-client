@@ -28,7 +28,7 @@ const Home = () => {
             width={385}
             src={image}
           />
-          <div className="w-96 my-16 px-2">
+          <div className="w-96 my-20 px-2">
             <h1 className="text-white font-bold text-6xl mb-4 ">
               It's not just a cooking ,
             </h1>

@@ -11,7 +11,7 @@ const ShowChefDetails = () => {
   if (navigaction.state === "loading") {
     return <Loading></Loading>;
   }
-  const { id, name, experience, photo, numRecipes, likes, bio, recipes } =
+  const { name, experience, photo, numRecipes, likes, bio, recipes } =
     detailsChef;
   console.log(detailsChef);
   return (
@@ -54,7 +54,7 @@ const ShowChefDetails = () => {
         <h1 className="text-center font-bold mt-12 mb-2 text-5xl  text-purple-600">
           Best And Best Recipes
         </h1>
-        <span className="my-container grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        <span className="my-container grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recipes.map((rec) => (
             <Recipes rec={rec}></Recipes>
           ))}
