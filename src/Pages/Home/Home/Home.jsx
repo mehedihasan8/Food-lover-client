@@ -6,6 +6,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import OurChefRecipies from "../OurChefRecipies/OurChefRecipies";
 import Loading from "../../Sherid/Loading/Loading";
+import About from "../About/About";
 
 const Home = () => {
   const datas = useLoaderData();
@@ -37,6 +38,7 @@ const Home = () => {
       </div>
       <Chefs datas={datas} />
       <OurChefRecipies />
+      <About />
     </>
   );
 };

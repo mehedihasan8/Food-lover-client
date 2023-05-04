@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Ingredients from "../Ingredients/Ingredients";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Recipes = ({ rec }) => {
   const [isFavorit, setIsFavorit] = useState(false);
@@ -13,10 +15,21 @@ const Recipes = ({ rec }) => {
     });
   };
 
-  const { ingredients, name, method, rating, favorite } = rec;
+  const { ingredients, name, method, rating, img } = rec;
+  console.log(img);
   return (
     <div className="card bg-blue-100 text-black">
-      <div className="card-body  ">
+      <div className="p-6">
+        <div className="h-60 w-full mx-auto">
+          <LazyLoadImage
+            effect="blur"
+            alt="img"
+            className=" rounded-3xl"
+            height={150}
+            width={220}
+            src={img}
+          />
+        </div>
         <h2 className="card-title text-2xl font-bold">Recipes : {name}</h2>
         <p className="my-2">
           <small className="text-xl font-semibold">Ingredinent : </small>
