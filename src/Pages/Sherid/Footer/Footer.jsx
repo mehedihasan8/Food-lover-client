@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center my-10">
+      <div className="text-center mt-14">
         <p>Copyright © 2023 - All right reserved by Food Lover LTD</p>
       </div>
     </footer>

@@ -19,7 +19,7 @@ const Recipes = ({ rec }) => {
   const { ingredients, name, method, rating, img } = rec;
   console.log(img);
   return (
-    <div className="card-body border relative  border-purple-400 ">
+    <div className="card-body border rounded-xl relative  border-purple-400 ">
       <div className="">
         <LazyLoadImage
           alt="img"
@@ -28,16 +28,18 @@ const Recipes = ({ rec }) => {
           width={""}
           src={img}
         />
-        <div className="p-3 mb-2">
+        <div className="p-3 mb-6">
           <h2 className="card-title text-2xl mt-2 font-bold"> {name}</h2>
           <p className="my-2">
             <small className="text-xl font-semibold">Ingredinent : </small>
-            {ingredients.map((ingredient) => (
-              <Ingredients ingredient={ingredient}></Ingredients>
-            ))}
+            <div className="grid grid-cols-2 my-3">
+              {ingredients.map((ingredient) => (
+                <Ingredients ingredient={ingredient}></Ingredients>
+              ))}
+            </div>
           </p>
           <p className="mb-2">
-            <span className="font-semibold">Cooking Method : </span> {method}
+            <span className="font-semibold  ">Cooking Method : </span> {method}
           </p>
         </div>
 
@@ -53,7 +55,9 @@ const Recipes = ({ rec }) => {
                 fullSymbol={<FaStar></FaStar>}
                 readonly
               />
-              <span className="mb-1 ml-2 font-semibold">Rating : {rating}</span>
+              <span className="mb-1 ml-2 font-semibold leading-5">
+                Rating : {rating}
+              </span>
             </p>
             <button
               onClick={handelBtnDisable}

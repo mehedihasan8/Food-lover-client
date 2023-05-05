@@ -1,6 +1,5 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 
 import images1 from "../../../../public/image/gallery1.png";
 import images2 from "../../../../public/image/gallery2.png";
@@ -20,7 +19,6 @@ const OurChefRecipies = () => {
             Beef Wellington
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl mx-auto hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}
@@ -33,7 +31,6 @@ const OurChefRecipies = () => {
             Scrambled Eggs
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}
@@ -46,7 +43,6 @@ const OurChefRecipies = () => {
             Lobster Risotto
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}
@@ -59,7 +55,6 @@ const OurChefRecipies = () => {
             Macaroni and Cheese
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}
@@ -72,7 +67,6 @@ const OurChefRecipies = () => {
             Spaghetti Carbonara
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}
@@ -85,7 +79,6 @@ const OurChefRecipies = () => {
             Hot and cold dring
           </h1>
           <LazyLoadImage
-            effect="blur"
             alt="img"
             className="rounded-xl hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
             height={380}

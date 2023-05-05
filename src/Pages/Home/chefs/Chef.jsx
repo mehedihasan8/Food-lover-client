@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { FaRegThumbsUp } from "react-icons/fa";
 
 const Chef = ({ data }) => {
   const { id, name, experience, photo, numRecipes, likes } = data;
@@ -25,8 +26,8 @@ const Chef = ({ data }) => {
         <div className="card-body">
           <h2 className="card-title font-bold">Name : {name}</h2>
           <p className="font-semibold">Experience : {experience} Years</p>
-          <p className="font-semibold">Recepies : {numRecipes} items </p>
-          <p className="font-semibold">Ovarall Likes : {likes} </p>
+          <p className="font-semibold">Total Recepies : {numRecipes} items </p>
+          <p className="font-semibold">Ovarall Likes : {likes}</p>
           <Link to={`/showchef/${id}`}>
             <div className="card-actions justify-end">
               <button className="btn btn-outline btn-primary">

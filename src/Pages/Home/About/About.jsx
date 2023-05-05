@@ -1,22 +1,25 @@
 import React from "react";
 import about from "../../../../public/image/about.jpeg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const About = () => {
   return (
-    <div className="max-w-4xl  p-20 mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-6xl  p-20 mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 className="text-center text-4xl md:text-5xl font-bold my-6 pb-6">
         About Us
       </h2>
-      <div className="grid md:flex items-center gap-4  ">
+      <div className=" md:flex items-center justify-evenly gap-10 ml-10 ">
         <div className="mb-4 md:mb-0">
-          <img
+          <LazyLoadImage
+            height={""}
+            width={""}
             src={about}
             alt="Chef in kitchen"
             className="w-full rounded-md"
           />
         </div>
-        <div className="border-x-2 px-4 border-purple-400 ">
-          <p className="text-center font-bold text-2xl text-purple-400  mb-7">
+        <div>
+          <p className=" font-bold text-2xl text-purple-400  mb-7">
             Welcome to our chef website!
           </p>
           <p className="mb-4 text-gray-600 font-semibold">

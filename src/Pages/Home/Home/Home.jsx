@@ -17,7 +17,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className="">
       <div className="my-container bg-image ">
         <div className=" lg:flex items-center gap-8">
           <LazyLoadImage
@@ -39,7 +39,7 @@ const Home = () => {
       <Chefs datas={datas} />
       <OurChefRecipies />
       <About />
-    </>
+    </div>
   );
 };
 
