@@ -13,11 +13,10 @@ const Chef = ({ data }) => {
           <div className="bg-slate-200 m-3 rounded-xl">
             <figure className="">
               <LazyLoadImage
-                effect="blur"
                 alt="img"
-                className="px-10 pt-10   shadow-sm"
-                height={320}
-                width={360}
+                className="w-80 h-80 px-10 pt-10   shadow-sm"
+                height={""}
+                width={""}
                 src={photo}
               />
             </figure>

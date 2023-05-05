@@ -7,6 +7,7 @@ const Register = () => {
   const { registerUser, upDateUser, setReload } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const handelSignIn = (event) => {
     event.preventDefault();
@@ -67,7 +68,7 @@ const Register = () => {
           toast.success(" Account Create Success", {
             position: toast.POSITION.TOP_CENTER,
           });
-
+          navigate("/");
           console.log(result.user);
         })
         .catch((err) => {

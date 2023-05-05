@@ -5,7 +5,6 @@ import Home from "../Pages/Home/Home/Home";
 import Blog from "../Pages/Home/Blog/Blog";
 import Login from "../Pages/Home/Login/Login";
 import Register from "../Pages/Home/Register/Register";
-import Chefs from "../Pages/Home/chefs/Chefs";
 import ShowChef from "../LayOut/ShowChef";
 import ShowChefDetails from "../Pages/ShowChefDetails/ShowChefDetails/ShowChefDetails";
 import PrivateRoutes from "./PrivateRoutes";

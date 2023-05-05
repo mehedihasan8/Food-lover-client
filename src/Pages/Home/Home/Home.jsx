@@ -21,18 +21,19 @@ const Home = () => {
       <div className="my-container bg-image ">
         <div className=" lg:flex items-center gap-8">
           <LazyLoadImage
-            effect="blur"
             alt="img"
-            className=" mx-auto rounded-2xl"
-            height={320}
-            width={385}
+            className=" w-80 md:w-96 h- mx-auto rounded-2xl"
+            height={""}
+            width={""}
             src={image}
           />
           <div className="w-96 my-20 px-2">
-            <h1 className="text-white font-bold text-6xl mb-4 ">
+            <h1 className=" text-center text-white font-bold text-5xl md:text-6xl mb-4 ">
               It's not just a cooking ,
             </h1>
-            <h1 className="text-white font-bold text-5xl">It's a Expeirence</h1>
+            <h1 className="text-center text-white font-bold text-4xl md:text-5xl">
+              It's a Expeirence
+            </h1>
           </div>
         </div>
       </div>

@@ -21,8 +21,8 @@ const OurChefRecipies = () => {
           <LazyLoadImage
             alt="img"
             className="rounded-xl mx-auto hover:rounded-3xl hover:scale-75 hover:transition-transform hover:translate-x-4 hover:skew-3 md:transform-none hover:delay-200"
-            height={380}
-            width={380}
+            height={""}
+            width={""}
             src={images1}
           />
         </div>

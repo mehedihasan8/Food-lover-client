@@ -22,11 +22,15 @@
 
 - JavaScript: We use JavaScript to add interactivity to our website, such as dropdown menus and form validation.
 
+- React Js: This web site is built usinge React Js .
+
 - Tailwind : We use the Tailwind framework to make our website responsive and mobile-friendly.
 
 ## Live Link
 
 - Hosted in Firebase -> [Food Lovers](https://food-lovers-1f510.web.app/)
+
+## Api Link
 
 - Hosted in Varcel -> [Food Lovers Api Link ](https://loves-food-server.vercel.app/)
 

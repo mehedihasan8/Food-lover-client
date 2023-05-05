@@ -16,7 +16,7 @@ const ShowChefDetails = () => {
   console.log(detailsChef);
   return (
     <div className="">
-      <div className="card  lg:w-3/5 lg:mx-auto mx-3 mt-12 bg-base-100 border border-purple-400 shadow-xl ">
+      <div className="card  lg:w-3/5 lg:mx-auto mx-5 mt-12 bg-base-100 border border-purple-400 shadow-xl ">
         <figure className="px-10 pt-10 bg-purple-300 m-5   ">
           <LazyLoadImage
             effect="blur"

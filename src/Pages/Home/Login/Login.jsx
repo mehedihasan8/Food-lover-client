@@ -35,12 +35,11 @@ const Login = () => {
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
-          console.log(result.user);
-          navigate(from, { replace: true });
-          setSuccess(" Login Successfull !");
-          toast.success(" Login Successfull !", {
+          toast.success("Login Successfull !", {
             position: toast.POSITION.TOP_CENTER,
           });
+          setSuccess("Login Successfull !");
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           setError(error.message);
@@ -54,12 +53,11 @@ const Login = () => {
   const loginWithGoogle = () => {
     handelGoogleLogin()
       .then((result) => {
-        console.log(result.user);
-        navigate(from, { replace: true });
-        setSuccess(" Login Successfull ! ");
         toast.success(" Login Successfull !", {
           position: toast.POSITION.TOP_CENTER,
         });
+        setSuccess(" Login Successfull ! ");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -72,11 +70,11 @@ const Login = () => {
   const loginWithGitHub = () => {
     handelGitHubLogin()
       .then((result) => {
-        navigate(from, { replace: true });
-        setSuccess("Login Successfull ");
         toast.success(" Login Successfull !", {
           position: toast.POSITION.TOP_CENTER,
         });
+        setSuccess("Login Successfull ");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -91,7 +89,7 @@ const Login = () => {
       <div className="my-container">
         <div className="flex justify-center align-center">
           <div className=" ">
-            <h1 className="text-center text-purple-400 text-4xl font-bold mb-3">
+            <h1 className="text-center text-purple-400 text-4xl font-bold mb-6">
               Plese Login
             </h1>
             <div className="bg-slate-200 px-11 py-16 rounded-md">
@@ -105,17 +103,17 @@ const Login = () => {
                     className="email w-auto md:w-96 p-3 rounded-md mt-2 mb-6"
                     type="email"
                     name="email"
-                    placeholder="enter your email"
+                    placeholder="Enter your email"
                   />
                 </div>
                 <div>
-                  <label htmlFor="">Enter You Password</label>
+                  <label htmlFor="">Enter You Password </label>
                   <br />
                   <input
                     className="email md:w-96 p-3 rounded-md my-2 mb-4"
                     type="password"
                     name="password"
-                    placeholder="enter your password"
+                    placeholder="Enter your password"
                   />
                 </div>
                 <p className=" text-red-600 font-semibold"> {error}</p>

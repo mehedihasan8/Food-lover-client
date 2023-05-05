@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { FaFilePdf } from "react-icons/fa";
 import Pdf from "react-to-pdf";
 
 const Blog = () => {
@@ -178,8 +179,11 @@ const Blog = () => {
       <div className="flex justify-end mr-20">
         <Pdf targetRef={ref} filename="blog-example.pdf">
           {({ toPdf }) => (
-            <button className="btn btn-primary" onClick={toPdf}>
-              Download Blog
+            <button
+              className="btn bg-purple-600 hover:bg-purple-800"
+              onClick={toPdf}
+            >
+              <FaFilePdf className=" mr-2 h-6 w-6" /> Download Blog
             </button>
           )}
         </Pdf>
